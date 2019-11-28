@@ -1,0 +1,54 @@
+/* ==========================================================================
+   #Borders
+   ========================================================================== */
+.border {
+    @for $i from 1 through 20 {
+        &--#{$i} {
+            border: ($i / 16) * 1rem solid;
+        }
+    }
+    @include bp('pc') {
+        &-pc {
+            @for $i from 1 through 20 {
+                &--#{$i} {
+                    border: ($i / 16) * 1rem solid;
+                }
+            }
+        }
+    }
+    @include bp('sp') {
+        &-sp {
+            @for $i from 1 through 20 {
+                &--#{$i} {
+                    border: ($i / 16) * 1rem solid;
+                }
+            }
+        }
+    }
+}
+
+.round {
+    @for $i from 1 through 20 {
+        &--#{$i} {
+            border-radius: ($i / 16) * 1rem;
+        }
+    }
+    @include bp('pc') {
+        &-pc {
+            @for $i from 1 through 20 {
+                &--#{$i} {
+                    border-radius: ($i / 16) * 1rem;
+                }
+            }
+        }
+    }
+    @include bp('sp') {
+        &-sp {
+            @for $i from 1 through 20 {
+                &--#{$i} {
+                    border-radius: ($i / 16) * 1rem;
+                }
+            }
+        }
+    }
+}

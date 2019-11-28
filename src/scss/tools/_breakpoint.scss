@@ -1,0 +1,41 @@
+/* ==========================================================================
+   #Breakpoint
+   ========================================================================== */
+@charset "utf-8";
+
+@mixin bp($bp_1, $bp_2: 0) {
+
+    $bp_main: $with_limit;
+
+    @if $bp_1=='sp' {
+        @media (max-width: #{$bp_main}px) {
+            @content;
+        }
+    }
+
+    @else if $bp_1=='pc' {
+        @media (min-width: #{$bp_main + 1}px) {
+            @content;
+        }
+    }
+
+    @else {
+        @if $bp_1 !=0 and $bp_2 !=0 {
+            @media (min-width: $bp_1) and (max-width: $bp_2) {
+                @content;
+            }
+        }
+
+        @else if $bp_1==0 {
+            @media (max-width: $bp_2) {
+                @content;
+            }
+        }
+
+        @else if $bp_2==0 {
+            @media (min-width: $bp_1) {
+                @content;
+            }
+        }
+    }
+}

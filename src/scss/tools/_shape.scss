@@ -1,0 +1,54 @@
+///* ========================================================================
+//   #SHAPE
+//   ======================================================================== */
+@mixin arrow-icon ($type, $color, $width, $border_width) {
+    border: solid $color;
+    padding: calc-rem($width);
+    border-width: 0 calc-rem($border_width) calc-rem($border_width) 0;
+
+    @if $type=='left' {
+        transform: rotate(135deg);
+    }
+
+    @if $type=='right' {
+        transform: rotate(-45deg);
+    }
+
+    @if $type=='up' {
+        transform: rotate(-135deg);
+    }
+
+    @if $type=='down' {
+        transform: rotate(45deg);
+    }
+}
+
+// Triangle helper mixin
+// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+// @param {Color} $color [currentcolor] - Triangle color
+// @param {Length} $size [1em] - Triangle size
+// Use: @include triangle(bottom);
+@mixin triangle($direction, $color: $color_base, $size: 1em) {
+
+    @if not index(top right bottom left, $direction) {
+        @error 'Direction must be either `top`, `right`, `bottom` or `left`.';
+    }
+
+    $perpendicular-borders: $size solid transparent;
+
+    @include size(0, 0);
+
+    content: '';
+    z-index: 2;
+    border-#{opposite-direction($direction)}: ($size * 1.5) solid $color;
+
+    @if $direction==top or $direction==bottom {
+        border-left: $perpendicular-borders;
+        border-right: $perpendicular-borders;
+    }
+
+    @else if $direction==right or $direction==left {
+        border-bottom: $perpendicular-borders;
+        border-top: $perpendicular-borders;
+    }
+}

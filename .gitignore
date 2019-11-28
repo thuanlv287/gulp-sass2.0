@@ -1,0 +1,6 @@
+.sass-cache
+src/css/
+node_modules
+src/*.html
+dist/
+package-lock.json

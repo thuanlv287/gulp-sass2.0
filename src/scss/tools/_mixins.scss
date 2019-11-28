@@ -1,0 +1,225 @@
+///* ========================================================================
+//   #SPACING
+//   ======================================================================== */
+@charset "utf-8";
+
+@mixin fs($fontsize: 16, $lineheight: 26, $base: 16) {
+    font-size: $fontsize + px;
+    font-size: ($fontsize / $base) * 1rem;
+    line-height: ($lineheight / $base) * 1rem;
+}
+
+@mixin hover-op($val : 0.75) {
+    opacity: 1;
+    transition: 0.25s opacity;
+
+    &:hover {
+        opacity: $val;
+    }
+}
+
+@mixin cover-all($pos: absolute) {
+    position: $pos;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin position-center() {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@mixin position-centerv($pos: null) {
+    position: absolute;
+    top: 50%;
+
+    @if $pos !=null {
+        right: 0;
+    }
+
+    @else {
+        left: 0;
+    }
+
+    transform: translateY(-50%);
+}
+
+@mixin background-gradient($type, $color_1, $color_2) {
+    background: $color_1;
+    background: linear-gradient(to $type, $color_1 0%, $color_1 0%, $color_2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color_1', endColorstr='$color_2', GradientType=1);
+}
+
+@mixin background-gradient3($pos1, $color_1, $color_2, $color_3) {
+    background: -webkit-gradient(to $pos1, $color_1 0%, $color_2 50%, $color_3 100%);
+    background: linear-gradient(to $pos1, $color_1 0%, $color_2 50%, $color_3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color_1', endColorstr='$color_3', GradientType=1);
+}
+
+@mixin block-hidden() {
+    position: relative;
+    display: block;
+}
+
+@mixin size($w, $h) {
+    @if type-of($w)==number and unit($w) !='%' {
+        width: calc-rem($w);
+    }
+
+    @else {
+        width: $w;
+    }
+
+    @if type-of($h)==number and unit($h) !='%' {
+        height: calc-rem($h);
+    }
+
+    @else {
+        height: $h;
+    }
+}
+
+@mixin bg-image($img, $repeat, $pos1, $pos2, $size: null) {
+    @if $img !='' {
+        background-image: url($img);
+    }
+
+    background-repeat: $repeat;
+    background-position: $pos1 $pos2;
+
+    @if $size !=null {
+        background-size: $size;
+    }
+}
+
+@mixin flex($direction: null, $align: null, $justify: null) {
+    display: flex;
+    flex-wrap: wrap;
+
+    @if $direction !=null {
+        flex-direction: $direction;
+    }
+
+    @if $align !=null {
+        align-items: $align;
+    }
+
+    @if $justify !=null {
+        justify-content: $justify;
+    }
+}
+
+@mixin position($pos, $pos_type, $pos1: 0, $pos2: 0, $index: null, $w: null, $h: null) {
+    position: $pos;
+
+    @if $index !='' {
+        z-index: $index;
+    }
+
+    @if $pos_type=='tl' {
+        @if type-of($pos1)==number and unit($pos1) !='%' {
+            top: handler-output-rem($pos1);
+        }
+
+        @else {
+            top: $pos1;
+        }
+
+        @if type-of($pos2)==number and unit($pos2) !='%' {
+            left: handler-output-rem($pos2);
+        }
+
+        @else {
+            left: $pos2;
+        }
+    }
+
+    @else if $pos_type=='tr' {
+        @if type-of($pos1)==number and unit($pos1) !='%' {
+            top: handler-output-rem($pos1);
+        }
+
+        @else {
+            top: $pos1;
+        }
+
+        @if type-of($pos2)==number and unit($pos2) !='%' {
+            right: handler-output-rem($pos2);
+        }
+
+        @else {
+            right: $pos2;
+        }
+    }
+
+    @else if $pos_type=='bl' {
+        @if type-of($pos1)==number and unit($pos1) !='%' {
+            bottom: handler-output-rem($pos1);
+        }
+
+        @else {
+            bottom: $pos1;
+        }
+
+        @if type-of($pos2)==number and unit($pos2) !='%' {
+            left: handler-output-rem($pos2);
+        }
+
+        @else {
+            left: $pos2;
+        }
+    }
+
+    @else if $pos_type=='br' {
+        @if type-of($pos1)==number and unit($pos1) !='%' {
+            bottom: handler-output-rem($pos1);
+        }
+
+        @else {
+            bottom: $pos1;
+        }
+
+        @if type-of($pos2)==number and unit($pos2) !='%' {
+            right: handler-output-rem($pos2);
+        }
+
+        @else {
+            right: $pos2;
+        }
+    }
+
+    @if type-of($w)==number and unit($w) !='%' {
+        width: calc-rem($w);
+    }
+
+    @else {
+        width: $w;
+    }
+
+    @if type-of($h)==number and unit($h) !='%' {
+        height: calc-rem($h);
+    }
+
+    @else {
+        height: $h;
+    }
+}
+
+@mixin placeholder {
+    &.placeholder {
+        @content;
+    }
+}
+
+@mixin hide-text {
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+}

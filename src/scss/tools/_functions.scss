@@ -1,0 +1,61 @@
+///* ========================================================================
+//   #FUNCTIONS
+//   ======================================================================== */
+
+// Calc Px to Rem
+@function calc-rem ($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+@function opposite-direction ($directions) {
+    $opposite-directions: ();
+    $direction-map: ('top': 'bottom', 'right': 'left', 'bottom': 'top', 'left': 'right', 'center': 'center', 'ltr': 'rtl', 'rtl': 'ltr');
+
+    @each $direction in $directions {
+        $direction: to-lower-case($direction);
+
+        @if map-has-key($direction-map, $direction) {
+            $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+        }
+
+        @else {
+            @warn 'No opposite direction can be found for `#{$direction}`. Direction omitted.';
+        }
+    }
+
+    @return $opposite-directions;
+}
+
+@mixin font-size ($font-size, $line-height: auto) {
+    font-size: $font-size + px;
+    font-size: ($font-size / 16) * 1rem;
+
+    @if $line-height==auto {
+        line-height: 1;
+    }
+
+    @else {
+
+        @if (type-of($line-height)==number or $line-height==inherit or $line-height==normal) {
+            line-height: $line-height + px;
+            line-height: ($line-height / 16) * 1rem;
+        }
+
+        @else if ($line-height !=none and $line-height !=false) {
+            @warn 'D’oh! ‘#{$line-height}’ is not a valid value for `line-height`.';
+
+        }
+    }
+}
+
+//
+@function handler-output-rem ($param) {
+    @if type-of($param) !=0 and unit($param)=='px' {
+        @return calc-rem($param);
+    }
+
+    @else {
+        @return 0;
+    }
+}

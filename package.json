@@ -1,0 +1,43 @@
+{
+    "name": "gulp-sass",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": "ThuanLV",
+    "license": "ISC",
+    "scripts": {
+        "dev": "gulp",
+        "test": "stylelint src/scss/**/*.scss --fix",
+        "build": "npm run test && gulp build"
+    },
+    "pre-commit": [
+        "test"
+    ],
+    "devDependencies": {
+        "browser-sync": "^2.7.12",
+        "del": "^2.0.2",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-cache": "^0.4.1",
+        "gulp-cssnano": "^2.1.0",
+        "gulp-file-include": "^2.0.1",
+        "gulp-html-beautify": "^1.0.1",
+        "gulp-if": "^2.0.0",
+        "gulp-imagemin": "^2.3.0",
+        "gulp-sass": "^3.0.0",
+        "gulp-sourcemaps": "^1.5.2",
+        "gulp-uglify-es": "^1.0.4",
+        "gulp-useref": "^3.0.4",
+        "gulp.spritesmith": "^6.10.1",
+        "pre-commit": "^1.2.2",
+        "run-sequence": "^1.1.2",
+        "stylelint": "^12.0.0",
+        "stylelint-config-sass-guidelines": "^6.1.0",
+        "stylelint-order": "^3.1.1",
+        "stylelint-scss": "^3.12.1",
+        "stylelint-selector-bem-pattern": "^2.1.0"
+    },
+    "dependencies": {
+        "gulp-cli": "^2.2.0"
+    }
+}

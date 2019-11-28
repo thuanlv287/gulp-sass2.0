@@ -1,0 +1,5 @@
+src/scss/main.scss
+src/scss/generic/**
+src/scss/settings/**
+src/scss/tools/**
+src/scss/utilities/_gender.scss

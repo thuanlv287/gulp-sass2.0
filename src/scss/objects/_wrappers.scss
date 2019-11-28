@@ -1,0 +1,25 @@
+/* ==========================================================================
+   #Wrapper
+   ========================================================================== */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: calc-rem(15px);
+    padding-right: calc-rem(15px);
+
+    @include bp('pc') {
+        width: calc-rem($width_content_pc);
+    }
+
+    &__fluid {
+        @extend .container;
+
+        width: 100%;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+

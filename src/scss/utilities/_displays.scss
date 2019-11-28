@@ -1,0 +1,122 @@
+/* ==========================================================================
+   #Display
+   ========================================================================== */
+$displays: block flex fixed none inline-block;
+$wraps: wrap no-wrap;
+$items: center flex-start flex-end;
+$directions: row row-reverse column column-reverse;
+$contents: center flex-start flex-end space-between space-around;
+
+.d {
+    @each $display in $displays {
+        &--#{$display} {
+            display: #{$display} !important;
+        }
+    }
+
+    @include bp('sp') {
+        &-sp {
+            @each $display in $displays {
+                &--#{$display} {
+                    display: #{$display} !important;
+                }
+            }
+        }
+    }
+
+    @include bp('pc') {
+        &-pc {
+            @each $display in $displays {
+                &--#{$display} {
+                    display: #{$display} !important;
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    @each $direction in $directions {
+        &--#{$direction} {
+            flex-direction: #{$direction};
+        }
+    }
+
+    @each $wrap in $wraps {
+        &--#{$wrap} {
+            flex-wrap: #{$wrap};
+        }
+    }
+
+    @include bp('pc') {
+        &-pc {
+            @each $direction in $directions {
+                &--#{$direction} {
+                    flex-direction: #{$direction};
+                }
+            }
+        }
+    }
+    @include bp('sp') {
+        &-sp {
+            @each $direction in $directions {
+                &--#{$direction} {
+                    flex-direction: #{$direction};
+                }
+            }
+        }
+    }
+}
+
+.align {
+    @each $item in $items {
+        &__items {
+            &--#{$item} {
+                align-items: #{$item};
+            }
+        }
+    }
+
+    @each $content in $contents {
+        &__content {
+            &--#{$content} {
+                align-content: #{$content};
+            }
+        }
+    }
+}
+
+.justify {
+    @each $item in $items {
+        &__items {
+            &--#{$item} {
+                justify-items: #{$item};
+            }
+        }
+    }
+
+    @each $content in $contents {
+        &__content {
+            &--#{$content} {
+                justify-content: #{$content};
+            }
+        }
+    }
+}
+
+.d-center {
+    display: block;
+    margin: 0 auto;
+}
+
+.only_pc {
+    @include bp('sp') {
+        display: none;
+    }
+}
+
+.only_sp {
+    @include bp('pc') {
+        display: none;
+    }
+}

@@ -1,0 +1,4 @@
+src/views/**
+src/scss/settings/_variables.scss
+src/scss/tools/*.scss
+src/scss/utilities/**

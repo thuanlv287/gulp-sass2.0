@@ -1,0 +1,255 @@
+///* ========================================================================
+//   #SPACING
+//   ======================================================================== */
+// variables
+$l: left;
+$r: right;
+$t: top;
+$b: bottom;
+$x: x;
+$y: y;
+$pad: padding;
+$mar: margin;
+$breakpoints: normal,
+pc,
+sp;
+
+// map with keywords used to automate building of CSS class names and property names
+$repeatable-slugs: $pad $l,
+$pad $r,
+$pad $t,
+$pad $b,
+$pad $x,
+$pad $y,
+$mar $l,
+$mar $r,
+$mar $t,
+$mar $b,
+$mar $x,
+$mar $y;
+
+@function add-unit-to-value ($value, $unit) {
+    @return ($value / 16) * 1rem;
+}
+
+@function increment ($i, $increment, $unit) {
+    @return add-unit-to-value(0 + ($i * $increment), $unit);
+}
+
+// class generator mixin
+@mixin repeat-unit-classes-map($name-map, $start, $end, $unit, $increment: 1) {
+
+    @each $breakpoint in $breakpoints {
+
+        @if $breakpoint==normal {
+
+            @each $slug in $name-map {
+                $key: nth($slug, 1);
+                $value: nth($slug, 2);
+
+                /* #{$slug} */
+
+                @if $value==x {
+                    @for $i from $start through $end {
+                        @if $key=='padding' {
+                            .px--#{$i * $increment} {
+                                #{$key}-left: increment($i, $increment, $unit) !important;
+                                #{$key}-right: increment($i, $increment, $unit) !important;
+                            }
+                        }
+
+                        @else if $key=='margin' {
+                            .mx--#{$i * $increment} {
+                                #{$key}-left: increment($i, $increment, $unit) !important;
+                                #{$key}-right: increment($i, $increment, $unit) !important;
+                            }
+                        }
+                    }
+                }
+
+                @else if $value==y {
+                    @for $i from $start through $end {
+                        @if $key=='padding' {
+                            .py--#{$i * $increment} {
+                                #{$key}-top: increment($i, $increment, $unit) !important;
+                                #{$key}-bottom: increment($i, $increment, $unit) !important;
+                            }
+                        }
+
+                        @else if $key=='margin' {
+                            .my--#{$i * $increment} {
+                                #{$key}-top: increment($i, $increment, $unit) !important;
+                                #{$key}-bottom: increment($i, $increment, $unit) !important;
+                            }
+                        }
+                    }
+                }
+
+                @else {
+                    @for $i from $start through $end {
+
+                        // .#{$key}-#{$value}--#{$i * $increment} {
+                        //     #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                        // }
+                        @if $key=='padding' {
+
+                            @if $value=='left' {
+                                .pl--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='right' {
+                                .pr--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='top' {
+                                .pt--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='bottom' {
+                                .pb--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                        }
+
+                        @else if $key=='margin' {
+                            @if $value=='left' {
+                                .ml--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='right' {
+                                .mr--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='top' {
+                                .mt--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $value=='bottom' {
+                                .mb--#{$i * $increment} {
+                                    #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @else {
+            @include bp('#{$breakpoint}') {
+                @each $slug in $name-map {
+                    $key: nth($slug, 1);
+                    $value: nth($slug, 2);
+
+                    /* #{$slug} */
+
+                    @if $value==x {
+                        @for $i from $start through $end {
+                            @if $key=='padding' {
+                                .px-#{$breakpoint}--#{$i * $increment} {
+                                    #{$key}-left: increment($i, $increment, $unit) !important;
+                                    #{$key}-right: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $key=='margin' {
+                                .mx-#{$breakpoint}--#{$i * $increment} {
+                                    #{$key}-left: increment($i, $increment, $unit) !important;
+                                    #{$key}-right: increment($i, $increment, $unit) !important;
+                                }
+                            }
+                        }
+                    }
+
+                    @else if $value==y {
+                        @for $i from $start through $end {
+                            @if $key=='padding' {
+                                .py-#{$breakpoint}--#{$i * $increment} {
+                                    #{$key}-top: increment($i, $increment, $unit) !important;
+                                    #{$key}-bottom: increment($i, $increment, $unit) !important;
+                                }
+                            }
+
+                            @else if $key=='margin' {
+                                .my-#{$breakpoint}--#{$i * $increment} {
+                                    #{$key}-top: increment($i, $increment, $unit) !important;
+                                    #{$key}-bottom: increment($i, $increment, $unit) !important;
+                                }
+                            }
+                        }
+                    }
+
+                    @else {
+                        @for $i from $start through $end {
+                            @if $key=='padding' {
+                                @if $value=='left' {
+                                    .pl-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='right' {
+                                    .pr-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='top' {
+                                    .pt-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='bottom' {
+                                    .pb-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+                            }
+
+                            @else if $key=='margin' {
+                                @if $value=='left' {
+                                    .ml-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='right' {
+                                    .mr-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='top' {
+                                    .mt-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+
+                                @else if $value=='bottom' {
+                                    .mb-#{$breakpoint}--#{$i * $increment} {
+                                        #{$key}-#{$value}: increment($i, $increment, $unit) !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

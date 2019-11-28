@@ -1,0 +1,63 @@
+/* ==========================================================================
+   #Font
+   ========================================================================== */
+/* prettier-ignore */
+$fontSizes: 16 20 24 28 32 40;
+$fontWeights: 100 200 300 400 500 600 700 normal bold;
+
+// font-sizes
+.fs {
+    @each $fontSize in $fontSizes {
+        &--#{$fontSize} {
+            font-size: #{$fontSize} !important;
+        }
+    }
+
+    @include bp('sp') {
+        &-sp {
+            @each $fontSize in $fontSizes {
+                &--#{$fontSize} {
+                    font-size: #{$fontSize} !important;
+                }
+            }
+        }
+    }
+
+    @include bp('pc') {
+        &-pc {
+            @each $fontSize in $fontSizes {
+                &--#{$fontSize} {
+                    font-size: #{$fontSize} !important;
+                }
+            }
+        }
+    }
+}
+// font-weights
+.fw {
+    @each $fontWeight in $fontWeights {
+        &--#{$fontWeight} {
+            font-weight: #{$fontWeight} !important;
+        }
+    }
+
+    @include bp('sp') {
+        &-sp {
+            @each $fontWeight in $fontWeights {
+                &--#{$fontWeight} {
+                    font-weight: #{$fontWeight} !important;
+                }
+            }
+        }
+    }
+
+    @include bp('pc') {
+        &-pc {
+            @each $fontWeight in $fontWeights {
+                &--#{$fontWeight} {
+                    font-weight: #{$fontWeight} !important;
+                }
+            }
+        }
+    }
+}

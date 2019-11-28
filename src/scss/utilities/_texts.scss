@@ -1,0 +1,33 @@
+/* ==========================================================================
+   #Text
+   ========================================================================== */
+/* prettier-ignore */
+$displays: center left right justify;
+
+.text {
+    @each $display in $displays {
+        &--#{$display} {
+            text-align: #{$display} !important;
+        }
+    }
+
+    @include bp('sp') {
+        &-sp {
+            @each $display in $displays {
+                &--#{$display} {
+                    text-align: #{$display} !important;
+                }
+            }
+        }
+    }
+
+    @include bp('pc') {
+        &-pc {
+            @each $display in $displays {
+                &--#{$display} {
+                    text-align: #{$display} !important;
+                }
+            }
+        }
+    }
+}

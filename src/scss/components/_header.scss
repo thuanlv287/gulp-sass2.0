@@ -1,0 +1,9 @@
+.header {
+    font-size: calc-rem(32px);
+
+    &--icon {
+        &::after {
+            content: '\e905';
+        }
+    }
+}

@@ -1,0 +1,352 @@
+{
+    "extends": "stylelint-config-sass-guidelines",
+    "plugins": [
+        "stylelint-order",
+        "stylelint-scss",
+        "stylelint-selector-bem-pattern"
+    ],
+    "rules": {
+        "indentation": [4],
+        "plugin/selector-bem-pattern": {
+            "componentName": "[A-Z]+",
+            "componentSelectors": {
+                "initial": "^\\.{componentName}(?:-|--|___[a-z]+)?$",
+                "combined": "^\\.combined-{componentName}-[a-z]+$"
+            },
+            "utilitySelectors": "^\\.util-[a-z]+$"
+        },
+        "order/properties-alphabetical-order": null,
+        "order/order": [
+            "declarations", {
+                "type": "at-rule",
+                "name": "media"
+            },
+            {
+                "type": "rule",
+                "selector": "^&:\\w+$"
+            },
+            "custom-properties", {
+                "type": "at-rule",
+                "name": "include"
+            },
+            {
+                "type": "rule",
+                "selector": "^\\.[-_a-zA-Z0-9]+"
+            },
+            {
+                "type": "rule",
+                "selector": "^&__[-a-z0-9]+"
+            },
+            {
+                "type": "rule",
+                "selector": "^&--[-a-z0-9]+"
+            }
+        ],
+        "order/properties-order": [
+            [{
+                    "properties": [
+                        "content",
+                        "box-sizing",
+                        "display",
+                        "flex",
+                        "flex-wrap",
+                        "flex-basis",
+                        "flex-direction",
+                        "flex-flow",
+                        "flex-grow",
+                        "flex-shrink",
+                        "align-content",
+                        "align-items",
+                        "align-self",
+                        "justify-content",
+                        "order",
+                        "grid",
+                        "grid-area",
+                        "grid-auto-*",
+                        "grid-column",
+                        "grid-column-*",
+                        "grid-gap",
+                        "grid-row",
+                        "grid-row-*",
+                        "grid-template",
+                        "grid-template-*",
+                        "position",
+                        "z-index",
+                        "top",
+                        "right",
+                        "bottom",
+                        "left",
+                        "width",
+                        "background",
+                        "background-*",
+                        "min-width",
+                        "max-width",
+                        "height",
+                        "min-height",
+                        "max-height",
+                        "overflow",
+                        "overflow-*",
+                        "margin",
+                        "margin-*",
+                        "border",
+                        "border-*",
+                        "padding",
+                        "padding",
+                        "padding-*"
+                    ]
+                },
+                {
+                    "properties": [
+                        "font-family",
+                        "font-size",
+                        "font-weight",
+                        "text-align",
+                        "text-transform",
+                        "text-decoration",
+                        "letter-spacing",
+                        "word-break",
+                        "word-wrap",
+                        "opacity"
+                    ]
+                },
+                {
+                    "properties": [
+                        "transform",
+                        "transform-*",
+                        "backface-visibility",
+                        "perspective",
+                        "perspective-origin",
+                        "transition",
+                        "transition-*",
+                        "animation",
+                        "animation-*"
+                    ]
+                }
+            ]
+        ],
+        "property-no-vendor-prefix": null,
+        "value-no-vendor-prefix": true,
+        "at-rule-no-vendor-prefix": null,
+        "no-missing-end-of-source-newline": null,
+        "selector-class-pattern": "",
+        "selector-max-compound-selectors": 5,
+        "max-nesting-depth": [10, {
+            "ignoreAtRules": ["/^include$/", "/^function$/", "/^if$/", "/^each$/"]
+        }],
+        "selector-no-qualifying-type": [true, {
+            "ignore": ["attribute", "class", "id"]
+        }],
+        "declaration-empty-line-before": ["always", {
+            "except": ["after-declaration", "first-nested"],
+            "ignore": ["after-comment", "after-declaration", "inside-single-line-block"]
+        }],
+        "color-hex-case": ["lower", {
+            "severity": "warning",
+            "message": "HEX colors must be in lower case"
+        }],
+        "color-named": ["never", {
+            "message": "Colors cannot be written with keywords"
+        }],
+        "color-no-invalid-hex": [true, {
+            "message": "Hex color spelling error"
+        }],
+
+        "no-duplicate-at-import-rules": [true, {
+            "message": "There should be no re-import of the file"
+        }],
+        "no-duplicate-selectors": [true, {
+            "message": "The same selector must not be duplicated"
+        }],
+        "no-extra-semicolons": [true, {
+            "message": "The same selector must not be duplicated"
+        }],
+
+        "font-family-name-quotes": ["always-where-recommended", {
+            "message": "The font name should be quoted"
+        }],
+        "font-family-no-duplicate-names": [true, {
+            "message": "You cannot duplicate the same font"
+        }],
+        "font-family-no-missing-generic-family-keyword": [true, {
+            "message": "Must specify sans-serif or serif"
+        }],
+        "font-weight-notation": ["numeric", {
+            "message": "Font density must be indicated with a number",
+            "ignore": ["relative"]
+        }],
+
+        "number-no-trailing-zeros": [true, {
+            "message": "Extra (optional) zero in the fraction"
+        }],
+
+        "declaration-colon-space-after": ["always-single-line", {
+            "message": "One space after the colon"
+        }],
+        "declaration-colon-space-before": ["never", {
+            "message": "Do not put a space before the colon"
+        }],
+        "declaration-block-no-duplicate-properties": [true, {
+            "message": "The rules should not be repeated"
+        }],
+        "declaration-block-no-shorthand-property-overrides": [true, {
+            "message": "This property interrupts another"
+        }],
+        "declaration-block-semicolon-newline-after": ["always", {
+            "message": "After semicolon hyphenation is necessary"
+        }],
+        "declaration-block-single-line-max-declarations": [1, {
+            "message": "ne line must have one rule"
+        }],
+        "declaration-block-trailing-semicolon": ["always", {
+            "message": "Each property must end with a semicolon."
+        }],
+        "declaration-block-semicolon-newline-before": ["never-multi-line", {
+            "message": "Wrap before the character; unacceptable"
+        }],
+        "declaration-block-semicolon-space-before": ["never", {
+            "message": "Space before character; unacceptable"
+        }],
+
+        "block-closing-brace-empty-line-before": ["never", {
+            "message": "There should be no empty line before «}»"
+        }],
+        "block-closing-brace-newline-after": ["always", {
+            "message": "After «}» there should be no transfer"
+        }],
+        "block-closing-brace-newline-before": ["always", {
+            "message": "Before «}» there should be a transfer"
+        }],
+        "block-opening-brace-newline-after": ["always", {
+            "message": "After «{» there should be a transfer"
+        }],
+        "block-opening-brace-space-before": ["always", {
+            "message": "There must be one space before «{»"
+        }],
+
+        "property-case": ["lower", {
+            "message": "Property values should be in lowercase"
+        }],
+        "property-no-unknown": [true, {
+            "message": "This property does not exist."
+        }],
+
+        "unit-case": ["lower", {
+            "message": "Units should be written in lowercase"
+        }],
+        "unit-no-unknown": [true, {
+            "message": "There are no such units"
+        }],
+
+        "value-keyword-case": ["lower", {
+            "message": "Property values should be in lowercase",
+            "ignoreProperties": ["/font-/"]
+        }],
+        "value-list-comma-space-after": ["always-single-line", {
+            "message": "Space required after decimal point"
+        }],
+        "value-list-comma-space-before": ["never", {
+            "message": "In the values before the comma, the space is not allowed"
+        }],
+        "value-list-comma-newline-after": ["always-multi-line", {
+            "message": "Property values must be hyphenated"
+        }],
+        "value-list-comma-newline-before": ["never-multi-line", {
+            "message": "roperty values must be hyphenated"
+        }],
+
+        "string-no-newline": [true, {
+            "message": "Line data should not have hyphens"
+        }],
+        "string-quotes": ["single", {
+            "message": "Double quotes in the project"
+        }],
+
+        "selector-attribute-operator-blacklist": [
+            ["id"], {
+                "message": "ou cannot use IDs for styling"
+            }
+        ],
+        "selector-pseudo-class-case": ["lower", {
+            "message": "Lowercase pseudo-classes"
+        }],
+        "selector-pseudo-class-no-unknown": [true, {
+            "message": "There is no such pseudo-class"
+        }],
+        "selector-pseudo-class-parentheses-space-inside": ["never", {
+            "message": "There must be no spaces inside brackets in pseudo-selectors"
+        }],
+        "selector-pseudo-element-case": ["lower", {
+            "message": "Pseudo-elements must be written in lowercase"
+        }],
+        "selector-pseudo-element-no-unknown": [true, {
+            "message": "No such pseudo-element exists."
+        }],
+        "selector-type-case": ["lower", {
+            "message": "Selectors must be lowercase"
+        }],
+        "selector-type-no-unknown": [true, {
+            "message": "There is no such selector"
+        }],
+        "selector-max-empty-lines": [0, {
+            "message": "Empty strings in selectors are invalid"
+        }],
+        "selector-list-comma-newline-after": ["always-multi-line", {
+            "message": "After a comma, line break is necessary  "
+        }],
+        "selector-list-comma-newline-before": ["never-multi-line", {
+            "message": "There must be no line break before the comma"
+        }],
+        "selector-list-comma-space-after": ["always-single-line", {
+            "message": "There must be a space after the comma"
+        }],
+        "selector-list-comma-space-before": ["never", {
+            "message": "There must be no space before the comma"
+        }],
+        "selector-descendant-combinator-no-non-space": [true, {
+            "message": "Combined selectors must be separated by a single space"
+        }],
+
+        "length-zero-no-unit": [true, {
+            "message": "Units are not indicated if the value is zero"
+        }],
+
+        "function-comma-space-after": ["always", {
+            "message": "A space is required after the comma"
+        }],
+        "function-comma-space-before": ["never", {
+            "message": "There should be no space before the comma"
+        }],
+        "function-comma-newline-before": ["never-multi-line", {
+            "message": "There should not be a comma before hyphenation"
+        }],
+        "function-comma-newline-after": ["never-multi-line", {
+            "message": "There should not be a comma after the transfer"
+        }],
+        "function-parentheses-newline-inside": ["never-multi-line", {
+            "message": "After the transfer, the brackets should not be"
+        }],
+        "function-max-empty-lines": [0, {
+            "message": "There should not be empty lines in functions"
+        }],
+        "function-name-case": ["lower", {
+            "message": "Function names should be lowercase"
+        }],
+        "function-whitespace-after": ["always", {
+            "message": "There must be spaces between functions"
+        }],
+
+        "media-feature-parentheses-space-inside": ["never", {
+            "message": "Spaces after «(» and before «)» cannot be used"
+        }],
+        "scss/selector-no-redundant-nesting-selector": null,
+        "scss/at-extend-no-missing-placeholder": null,
+        "scss/dollar-variable-no-missing-interpolation": true,
+        "scss/at-mixin-argumentless-call-parentheses": "always",
+        "scss/dollar-variable-pattern": "",
+        "scss/at-each-key-value-single-line": true,
+        "scss/at-function-parentheses-space-before": "always",
+        "scss/dollar-variable-colon-space-after": "always",
+        "at-rule-blacklist": ["debug"]
+    }
+}
+

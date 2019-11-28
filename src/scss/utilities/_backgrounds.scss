@@ -1,0 +1,35 @@
+/* ==========================================================================
+   #Backgrounds
+   ========================================================================== */
+.bg {
+    @include bp('pc') {
+        &-pc {
+
+            @each $key,
+                $val in $theme-colors {
+                &--#{$key} {
+                    background-color: #{$val};
+                }
+            }
+        }
+    }
+
+    @include bp('sp') {
+        &-sp {
+
+            @each $key,
+                $val in $theme-colors {
+                &--#{$key} {
+                    background-color: #{$val};
+                }
+            }
+        }
+    }
+
+    @each $key,
+        $val in $theme-colors {
+        &--#{$key} {
+            background-color: #{$val};
+        }
+    }
+}

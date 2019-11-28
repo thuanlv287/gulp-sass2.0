@@ -1,0 +1,45 @@
+/* ==========================================================================
+#Variables
+========================================================================== */
+// Define color
+$color_base: #333;
+$color_primary: #039;
+$color_black: #000;
+$color_white: #fff;
+
+/* Define theme colors */
+$theme-colors: () !default;
+$colors: (
+	'default': $color_base,
+	'primary': $color_primary,
+	'black': $color_black,
+	'white': $color_white
+);
+$theme-colors: map-merge($colors, $theme-colors);
+
+// Define theme font-family
+$font_base: 'IcoMoon-Free', sans-serif;
+
+// Define theme font-size
+$fs_base: 16;
+$fs_h1: 40;
+$fs_h2: 32;
+$fs_h3: 28;
+$fs_h4: 24;
+$fs_h5: 20;
+$fs_h6: 16;
+
+$fs_base_sp: 14;
+
+$lh_base: 24;
+$lh_base_sp: 20;
+$fw_base: 500;
+
+// Define space base
+$space_base_px: 15px;
+
+// Size content
+$width_content_pc: 1188px;
+
+// limit space between pc and sp
+$with_limit: 750;

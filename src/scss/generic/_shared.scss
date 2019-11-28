@@ -1,0 +1,54 @@
+/* ==========================================================================
+#SHARED
+========================================================================== */
+
+/**
+* Shared declarations for certain elements.
+*/
+
+/**
+* Always declare margins in the same direction:
+* csswizardry.com/2012/06/single-direction-margin-declarations
+*/
+
+address,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+ol,
+ul,
+figure,
+hr,
+table,
+fieldset {
+    margin-bottom: calc-rem($space_base_px);
+}
+
+/**
+* Consistent indentation for lists.
+*/
+
+dd,
+ol,
+ul {
+    margin-left: calc-rem($space_base_px);
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: $color_base;
+    font-family: $font_base;
+    font-weight: $fw_base;
+    word-break: break-all;
+    @include font-size($fs_base, $lh_base);
+}

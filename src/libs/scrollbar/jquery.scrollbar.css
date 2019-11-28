@@ -1,0 +1,155 @@
+/*************** SCROLLBAR BASE CSS ***************/
+ 
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+ 
+.scroll-wrapper > .scroll-content {
+    border: none !important;
+    box-sizing: content-box !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none !important;
+    overflow: scroll !important;
+    position: relative !important;
+    top: 0;
+    width: auto !important;
+}
+
+.scroll-textarea > .scroll-content {
+    overflow: hidden !important;
+}
+ 
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+.scroll-element {
+    display: none;
+}
+.scroll-element, .scroll-element div {
+    box-sizing: content-box;
+}
+ 
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+ 
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+    cursor: default;
+}
+ 
+.scroll-textarea {
+    border: 1px solid #cccccc;
+    border-top-color: #999999;
+}
+
+.scroll-textarea > .scroll-content > textarea {
+    border: none !important;
+    box-sizing: border-box;
+    height: 100% !important;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: scroll !important;
+    outline: none;
+    padding: 2px;
+    position: relative !important;
+    top: 0;
+    width: 100% !important;
+}
+.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+ 
+ 
+ 
+/*************** SCROLLBAR GOOGLE CHROME ***************/
+ 
+.scrollbar-chrome > .scroll-element,
+.scrollbar-chrome > .scroll-element div
+{
+    border: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+}
+ 
+.scrollbar-chrome > .scroll-element {
+    background-color: #ffffff;
+}
+ 
+.scrollbar-chrome > .scroll-element div {
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.scrollbar-chrome > .scroll-element .scroll-element_track {
+    background: #eee;
+}
+ 
+.scrollbar-chrome > .scroll-element.scroll-x {
+    bottom: 0;
+    height: calc(22 * 1rem / 16);
+    left: 0;
+    min-width: 100%;
+    width: 100%;
+}
+ 
+.scrollbar-chrome > .scroll-element.scroll-y {
+    height: 100%;
+    min-height: 100%;
+    right: 0;
+    top: 0;
+    width: calc(22 * 1rem / 16);
+}
+ 
+.scrollbar-chrome > .scroll-element .scroll-bar {
+    background-color: #888;
+    cursor: default;
+}
+ 
+.scrollbar-chrome > .scroll-element .scroll-bar:hover {
+    background-color: #c2c2c2;
+    border-color: #a9a9a9;
+}
+ 
+.scrollbar-chrome > .scroll-element.scroll-draggable .scroll-bar {
+    background-color: #919191;
+    border-color: #7e7e7e;
+}
+ 
+/* scrollbar height/width & offset from container borders */
+ 
+.scrollbar-chrome > .scroll-content.scroll-scrolly_visible { left: calc(-22 * 1rem / 16); margin-left: calc(22 * 1rem / 16); }
+.scrollbar-chrome > .scroll-content.scroll-scrollx_visible { top:  calc(-22 * 1rem / 16); margin-top:  calc(22 * 1rem / 16); }
+ 
+.scrollbar-chrome > .scroll-element.scroll-x .scroll-bar { height: 100%; min-width: 10px; top: 0; }
+.scrollbar-chrome > .scroll-element.scroll-y .scroll-bar { left: 0; min-height: 10px; width: 100%; }
+ 
+.scrollbar-chrome > .scroll-element.scroll-x .scroll-element_track { height: calc(22 * 1rem / 16); left: 0; }
+.scrollbar-chrome > .scroll-element.scroll-x .scroll-element_size { height: calc(22 * 1rem / 16); left: 0; }
+ 
+.scrollbar-chrome > .scroll-element.scroll-y .scroll-element_track { top: 0; width: calc(22 * 1rem / 16); }
+.scrollbar-chrome > .scroll-element.scroll-y .scroll-element_size { top: 0; width: calc(22 * 1rem / 16); }
+ 
+/* update scrollbar offset if both scrolls are visible */
+ 
+.scrollbar-chrome > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -19px; }
+.scrollbar-chrome > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -19px; }
+ 
+.scrollbar-chrome > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -19px; }
+.scrollbar-chrome > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top: -19px; }

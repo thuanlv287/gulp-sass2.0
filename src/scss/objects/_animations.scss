@@ -1,0 +1,103 @@
+/* ==========================================================================
+   #Animations
+   ========================================================================== */
+.ani {
+    &--opa075 {
+        @include hover-op(0.75);
+    }
+
+    &--opa05 {
+        @include hover-op(0.5);
+    }
+
+    &--zoom {
+        background-color: $color_white;
+        overflow: hidden;
+
+        img {
+            display: block;
+            transition-duration: 0.3s;
+        }
+
+        &:hover img {
+            opacity: 0.9;
+            transform: scale(1.1);
+            transition-duration: 0.3s;
+        }
+    }
+
+    &--scrollOn {
+        animation: scrollOn 1s ease-in-out forwards;
+    }
+
+    &--scrollOff {
+        animation: scrollOff 375ms ease-in-out forwards;
+    }
+
+    &--loader {
+        position: relative;
+
+        &::after {
+            content: '';
+            border: 3px solid $color_white;
+            animation: loader infinite linear 1s;
+            border-radius: 100%;
+            border-top: 3px solid transparent;
+            @include position(absolute, 'tl', calc(50% - 20px), calc(50% - 20px), 100, 40px, 40px);
+        }
+    }
+
+    &--backdrop {
+        &::before {
+            content: '';
+            background: $color_black;
+            opacity: 0;
+            transition: 0.2s ease-in-out;
+            @include position(absolute, 'tl', 0, 0, 3, 100%, 100%);
+        }
+
+        &:hover::before {
+            opacity: 0.5;
+        }
+    }
+}
+
+@keyframes scrollOn {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes scrollOff {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+}
+
+
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg) opacity 0.35;
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

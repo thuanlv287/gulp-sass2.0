@@ -1,0 +1,76 @@
+/* ==========================================================================
+#GENDER
+========================================================================== */
+/**
+* Icons
+*/
+/* stylelint-disable */
+/* prettier-ignore */
+$icons_pc: ('human' : ('width': calc-rem(16px), 'height': calc-rem(19px)),
+'hospital' : ('width': calc-rem(26px), 'height': calc-rem(24px)),
+'message' : ('width': calc-rem(23px), 'height': calc-rem(21px)),
+'message-blue' : ('width': calc-rem(23px), 'height': calc-rem(21px)),
+'article' : ('width': calc-rem(22px), 'height': calc-rem(25px)),
+'person' : ('width': calc-rem(21px), 'height': calc-rem(24px)),
+'search' : ('width': calc-rem(19px), 'height': calc-rem(19px)),
+'search_blue' : ('width': calc-rem(19px), 'height': calc-rem(19px)),
+);
+
+$icons_sp: ('hospital' : ('width': calc-rem(18px), 'height': calc-rem(17px)),
+'message' : ('width': calc-rem(20px), 'height': calc-rem(19px)),
+'message-blue' : ('width': calc-rem(20px), 'height': calc-rem(19px)),
+'article' : ('width': calc-rem(14px), 'height': calc-rem(16px)),
+'book' : ('width': calc-rem(20px), 'height': calc-rem(20px)),
+'person' : ('width': calc-rem(16px), 'height': calc-rem(20px)),
+'search' : ('width': calc-rem(19px), 'height': calc-rem(19px)),
+'search_blue' : ('width': calc-rem(19px), 'height': calc-rem(19px)),
+);
+
+$icons_png: ('login' : ('width': calc-rem(20px), 'height': calc-rem(18px)),
+'search_blue': ('width': calc-rem(19px), 'height': calc-rem(19px)),
+);
+
+.icon {
+
+    @include bp('pc') {
+
+        @each $menu-key,
+            $menu-val in $icons_pc {
+            &--#{$menu-key} {
+                background-image: url('../images/icons/#{$menu-key}.svg');
+
+                @each $size-key,
+                    $size-value in $menu-val {
+                    #{$size-key}: $size-value;
+                }
+            }
+        }
+    }
+
+    @include bp('sp') {
+
+        @each $menu-key,
+            $menu-val in $icons_sp {
+            &--#{$menu-key} {
+                background-image: url('../images/icons/#{$menu-key}.svg');
+
+                @each $size-key,
+                    $size-value in $menu-val {
+                    #{$size-key}: $size-value;
+                }
+            }
+        }
+    }
+
+    @each $menu-key,
+        $menu-val in $icons_png {
+        &--#{$menu-key} {
+            background-image: url('../images/icons/#{$menu-key}.png');
+
+            @each $size-key,
+                $size-value in $menu-val {
+                #{$size-key}: $size-value;
+            }
+        }
+    }
+}

@@ -1,0 +1,128 @@
+/* ==========================================================================
+   #Spacing
+   ========================================================================== */
+@include repeat-unit-classes-map($repeatable-slugs, 0, 20, px, 5);
+
+.m {
+    &--0 {
+        margin: 0;
+    }
+
+    &--auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &l {
+        &--auto {
+            margin-left: auto;
+        }
+    }
+
+    &r {
+        &--auto {
+            margin-right: auto;
+        }
+    }
+
+    &x {
+
+        @include bp('pc') {
+            &__pc {
+                &--auto {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        @include bp('sp') {
+            &__sp {
+                &--auto {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        &--auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.p {
+    &--auto {
+        padding-left: auto;
+        padding-right: auto;
+    }
+
+    &l {
+        &--auto {
+            padding-left: auto;
+        }
+    }
+
+    &r {
+        &--auto {
+            padding-right: auto;
+        }
+
+        &--6 {
+            padding-right: calc-rem(6px);
+        }
+    }
+
+    &x {
+
+        @include bp('pc') {
+            &__pc {
+                &--auto {
+                    padding-left: auto;
+                    padding-right: auto;
+                }
+            }
+        }
+
+        @include bp('sp') {
+            &__sp {
+                &--auto {
+                    padding-left: auto;
+                    padding-right: auto;
+                }
+            }
+        }
+
+        &--auto {
+            padding-left: auto;
+            padding-right: auto;
+        }
+    }
+
+    &y {
+
+        @include bp('pc') {
+            &-pc {
+                &--23 {
+                    padding-top: calc-rem(23px);
+                    padding-bottom: calc-rem(23px);
+                }
+            }
+        }
+
+        &--18 {
+            padding-top: calc-rem(18px);
+            padding-bottom: calc-rem(18px);
+        }
+    }
+}
+
+.no-padding {
+    @include bp('sp') {
+        &-sp {
+            margin-left: calc-rem(- $space_base_px);
+            margin-right: calc-rem(- $space_base_px);
+        }
+    }
+}
