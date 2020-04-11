@@ -7,11 +7,11 @@
     "license": "ISC",
     "scripts": {
         "dev": "gulp",
-        "test": "stylelint src/scss/**/*.scss --fix",
-        "build": "npm run test && gulp build"
+        "lint": "stylelint src/scss/**/*.scss --fix",
+        "build": "npm run lint && gulp build"
     },
     "pre-commit": [
-        "test"
+        "lint"
     ],
     "devDependencies": {
         "browser-sync": "^2.7.12",
