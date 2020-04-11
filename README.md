@@ -19,7 +19,7 @@
 2. Run default gulp task (will open browser window with live reload)
 
     #### `npm run dev`
-    #### `npm run test`
+    #### `npm run lint`
     #### `npm run build`
 
 ## Notes
